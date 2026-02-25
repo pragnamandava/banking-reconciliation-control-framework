@@ -16,7 +16,18 @@ The system performs:
 The objective is to replicate how banking operations teams manage reconciliation, monitor risk, and control financial exposure.
 
 ---
+## ▶ Execution Order
 
+To run the project in MySQL 8.0, execute the SQL scripts in the following sequence:
+
+1. `01_create_tables.sql`
+2. `02_generate_internal_ledger.sql`
+3. `03_generate_external_statement.sql`
+4. `04_reconciliation_engine.sql`
+5. `05_suspense_logic.sql`
+6. `06_ageing_and_eod_reporting.sql`
+
+Each script represents a modular layer of the reconciliation control framework.
 ## 2. Business Context
 
 In banking operations, reconciliation ensures that:
