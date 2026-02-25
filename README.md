@@ -246,3 +246,33 @@ Planned improvements:
 ## Project Summary
 
 This project simulates a banking-grade reconciliation control environment, implementing deterministic 1-to-1 transaction matching, break classification, suspense management, ageing monitoring, and financial exposure analytics using MySQL.
+
+## 🏗 System Architecture
+
+```
+            ┌──────────────────────┐
+            │  Internal Ledger     │
+            │ (Bank Books)         │
+            └────────────┬─────────┘
+                         │
+                         │
+                         ▼
+                ┌────────────────┐
+                │ Reconciliation │
+                │    Engine      │
+                └────────┬───────┘
+                         │
+         ┌───────────────┼────────────────┐
+         ▼               ▼                ▼
+    MATCHED        Break Classification   Missing
+                     │
+                     ▼
+              ┌───────────────┐
+              │ Suspense      │
+              │  Account      │
+              └──────┬────────┘
+                     ▼
+              Ageing & Exposure
+                     ▼
+             End-of-Day Reporting
+```
